@@ -14,6 +14,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ApiServiceProvider } from '../providers/api-service/api-service';
+import { KomponentenPage } from '../pages/komponenten/komponenten';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ApiServiceProvider } from '../providers/api-service/api-service';
     Page1Page,
     Page2Page,
     Page3Page,
-    ApiResultPage
+    ApiResultPage,
+    KomponentenPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { ApiServiceProvider } from '../providers/api-service/api-service';
     Page1Page,
     Page2Page,
     Page3Page,
-    ApiResultPage
+    ApiResultPage,
+    KomponentenPage
   ],
   providers: [
     StatusBar,

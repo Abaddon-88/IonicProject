@@ -2,6 +2,7 @@ import { ApiResultPage } from '../api-result/api-result';
 import { Page1Page } from '../page1/page1';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { KomponentenPage } from '../komponenten/komponenten';
 
 /**
  * Generated class for the FunktionsübersichtPage page.
@@ -26,6 +27,10 @@ export class FunktionsübersichtPage {
 
   pushtoApiPage(){
     this.navCtrl.push(ApiResultPage);
+  }
+
+  pushtoComponent(){
+    this.navCtrl.push(KomponentenPage);
   }
 
 }
