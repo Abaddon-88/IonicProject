@@ -20,6 +20,8 @@ ionViewDidEnter()
   setTimeout(() => {
     this.navCtrl.push(FunktionsübersichtPage)},0);
   
+
+
 }
 
 

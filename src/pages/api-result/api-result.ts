@@ -18,21 +18,21 @@ export class ApiResultPage {
 
  users:any; 
 
+
   constructor(public navCtrl: NavController, public apiProvider: ApiServiceProvider) {
     this.getUsers();
+    
   }
+
+  
 
   getUsers() {
     this.apiProvider.getUsers()
     .then(data => {
-      this.users = data.results;
-      console.log(this.users);
+      this.users = data['results'];
     });
   }
  
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ApiResultPage');
-  }
 
 }

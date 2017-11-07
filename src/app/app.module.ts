@@ -47,4 +47,9 @@ import { ApiServiceProvider } from '../providers/api-service/api-service';
     ApiServiceProvider
   ]
 })
-export class AppModule {}
+export class AppModule {
+
+
+
+}
+
