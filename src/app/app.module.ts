@@ -15,6 +15,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ApiServiceProvider } from '../providers/api-service/api-service';
 import { KomponentenPage } from '../pages/komponenten/komponenten';
+import { GitHubDetailPage } from '../pages/git-hub-detail/git-hub-detail';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { KomponentenPage } from '../pages/komponenten/komponenten';
     Page2Page,
     Page3Page,
     ApiResultPage,
-    KomponentenPage
+    KomponentenPage,
+    GitHubDetailPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { KomponentenPage } from '../pages/komponenten/komponenten';
     Page2Page,
     Page3Page,
     ApiResultPage,
-    KomponentenPage
+    KomponentenPage,
+    GitHubDetailPage
   ],
   providers: [
     StatusBar,

@@ -12,15 +12,24 @@ import 'rxjs/add/operator/map';
 export class ApiServiceProvider {
 
 apiUrl = 'https://randomuser.me/api/?results=20';
-apiUrl1 = 'https://jsonplaceholder.typicode.com/users'
+apiUrl1 = 'https://jsonplaceholder.typicode.com/users';
+apiUrl2 = 'https://api.github.com/users';
 
   constructor(public http: HttpClient) {
     console.log('Hello ApiServiceProvider Provider');
   }
 
-  getUsers() {
+checkInput(input:String){
+
+  if(input!='') return input = '/'+input
+}
+
+  getUsers(input: String) {
+
+    if(input != '') input = '/'+input
+
     return new Promise(resolve => {
-      this.http.get(this.apiUrl)
+      this.http.get(this.apiUrl2+input)
       .subscribe(data => {
         resolve(data);
       }, err => {

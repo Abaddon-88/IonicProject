@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiServiceProvider} from '../../providers/api-service/api-service';
+import { GitHubDetailPage } from '../git-hub-detail/git-hub-detail';
 
 /**
  * Generated class for the ApiResultPage page.
@@ -27,10 +28,15 @@ export class ApiResultPage {
   
 
   getUsers() {
-    this.apiProvider.getUsers()
+    this.apiProvider.getUsers('')
     .then(data => {
-      this.users = data['results'];
+      console.log(data);
+      this.users = data;
     });
+  }
+
+  UserDetails(user) {
+    this.navCtrl.push(GitHubDetailPage, {userP: user.login} );
   }
  
 
