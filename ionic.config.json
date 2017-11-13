@@ -2,5 +2,7 @@
   "name": "Api_Project",
   "app_id": "fa93ad01",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }

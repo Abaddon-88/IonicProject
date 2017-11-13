@@ -2,6 +2,7 @@ import { Page3Page } from './../page3/page3';
 import { Page2Page } from './../page2/page2';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LocationPage } from '../location/location';
 
 /**
  * Generated class for the Page1Page page.

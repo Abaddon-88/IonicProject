@@ -3,6 +3,7 @@ import { Page1Page } from '../page1/page1';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { KomponentenPage } from '../komponenten/komponenten';
+import { LocationPage } from '../location/location';
 
 /**
  * Generated class for the FunktionsübersichtPage page.
@@ -31,6 +32,10 @@ export class FunktionsübersichtPage {
 
   pushtoComponent(){
     this.navCtrl.push(KomponentenPage);
+  }
+
+  pushtoLocation(){
+    this.navCtrl.push(LocationPage);
   }
 
 }

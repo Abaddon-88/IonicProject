@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiServiceProvider} from '../../providers/api-service/api-service';
 import { GitHubDetailPage } from '../git-hub-detail/git-hub-detail';
+import { Geolocation } from '@ionic-native/geolocation';
 
 /**
  * Generated class for the ApiResultPage page.

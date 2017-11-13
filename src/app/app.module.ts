@@ -16,6 +16,10 @@ import { HomePage } from '../pages/home/home';
 import { ApiServiceProvider } from '../providers/api-service/api-service';
 import { KomponentenPage } from '../pages/komponenten/komponenten';
 import { GitHubDetailPage } from '../pages/git-hub-detail/git-hub-detail';
+import { LocationPage } from '../pages/location/location';
+import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleMaps } from '@ionic-native/google-maps';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { GitHubDetailPage } from '../pages/git-hub-detail/git-hub-detail';
     Page3Page,
     ApiResultPage,
     KomponentenPage,
-    GitHubDetailPage
+    GitHubDetailPage,
+    LocationPage
   ],
   imports: [
     BrowserModule,
@@ -44,13 +49,16 @@ import { GitHubDetailPage } from '../pages/git-hub-detail/git-hub-detail';
     Page3Page,
     ApiResultPage,
     KomponentenPage,
-    GitHubDetailPage
+    GitHubDetailPage,
+    LocationPage
   ],
   providers: [
     StatusBar,
+    Geolocation,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiServiceProvider
+    ApiServiceProvider,
+    GoogleMaps
   ]
 })
 export class AppModule {
