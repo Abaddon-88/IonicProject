@@ -1,9 +1,11 @@
 import { ApiResultPage } from '../api-result/api-result';
 import { Page1Page } from '../page1/page1';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 import { KomponentenPage } from '../komponenten/komponenten';
 import { LocationPage } from '../location/location';
+import { App, MenuController } from 'ionic-angular';
+
 
 /**
  * Generated class for the FunktionsübersichtPage page.
@@ -12,6 +14,7 @@ import { LocationPage } from '../location/location';
  * Ionic pages and navigation.
  */
 
+
 @IonicPage()
 @Component({
   selector: 'page-funktionsübersicht',
@@ -19,8 +22,13 @@ import { LocationPage } from '../location/location';
 })
 export class FunktionsübersichtPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, menu: MenuController) {
+   
   }
+
+  
 
   pushtoPage1(){
     this.navCtrl.push(Page1Page);
