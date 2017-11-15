@@ -90,4 +90,5 @@
         <variable name="API_KEY_FOR_IOS" value="" />
     </plugin>
     <allow-navigation href="http://192.168.0.111:8100" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
 </widget>
