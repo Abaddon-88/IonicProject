@@ -16,7 +16,7 @@ apiUrl1 = 'https://jsonplaceholder.typicode.com/users';
 apiUrl2 = 'https://api.github.com/users';
 
   constructor(public http: HttpClient) {
-    console.log('Hello ApiServiceProvider Provider');
+
   }
 
 checkInput(input:String){
@@ -38,6 +38,6 @@ checkInput(input:String){
     });
   }
 
- 
+
 
 }

@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { LocationPage } from '../pages/location/location';
 
 
 
@@ -25,7 +26,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  
+
 
   constructor(public platform: Platform,public statusBar: StatusBar, public splashScreen: SplashScreen) {
 this.initializeApp();
@@ -36,27 +37,28 @@ this.initializeApp();
       { title: 'Page2',  component: Page2Page},
       { title: 'Page3', component: Page3Page },
       { title: 'Komponenten', component: KomponentenPage },
-      { title: 'Api', component: ApiResultPage }
-  
+      { title: 'Api', component: ApiResultPage },
+      { title: "Location", component: LocationPage}
+
     ];
     };
 
 
 
-  
+
     initializeApp() {
       this.platform.ready().then(() => {
-    
+
         this.statusBar.styleDefault();
         this.splashScreen.hide();
       });
     }
-  
+
     openPage(page) {
     console.log(page);
       this.nav.push(page.component);
-      
+
     }
-  
+
 }
 
