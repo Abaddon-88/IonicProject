@@ -2,13 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {ApiServiceProvider} from '../../providers/api-service/api-service'
 
-/**
- * Generated class for the GitHubDetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-git-hub-detail',
@@ -16,23 +9,30 @@ import {ApiServiceProvider} from '../../providers/api-service/api-service'
 })
 export class GitHubDetailPage {
 
-  userDetails:any; 
-  
+  userDetails:any;
+  userData:any;
+  userName:any;
+  userPic:any;
+  userType:any;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public apiProvider: ApiServiceProvider) {
-    this.getUsersDetails(this.navParams.get('userP'));
+
 
   }
 
-  
-
-  getUsersDetails(user) {
 
 
-    this.apiProvider.getUsers(user)
+  getUsersDetails() {
+
+
+    this.apiProvider.getUsersGitHub(this.userDetails)
     .then(data => {
-      console.log(data);
-      this.userDetails = data;
+      this.userData = data;
+      this.userName = this.userData.login;
+      this.userPic = this.userData.avatar_url;
+      this.userType = this.userData.type;
+
     });
   }
 

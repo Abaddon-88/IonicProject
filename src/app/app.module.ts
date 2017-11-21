@@ -34,7 +34,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 @NgModule({
   declarations: [
     MyApp
-   
+
   ],
   imports: [
     BrowserModule,
@@ -47,9 +47,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     Page3PageModule,
     ApiResultPageModule,
     GitHubDetailPageModule,
-    KomponentenPageModule,
     LocationPageModule
-    
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -60,7 +59,6 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     Page3Page,
     FunktionsuebersichtPage,
     ApiResultPage,
-    KomponentenPage,
     GitHubDetailPage,
     LocationPage
   ],

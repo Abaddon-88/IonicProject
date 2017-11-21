@@ -24,20 +24,37 @@ checkInput(input:String){
   if(input!='') return input = '/'+input
 }
 
-  getUsers(input: String) {
+  getUsersProfiles(input: String) {
 
     if(input != '') input = '/'+input
 
     return new Promise(resolve => {
-      this.http.get(this.apiUrl2+input)
+      this.http.get(this.apiUrl+input)
       .subscribe(data => {
-        resolve(data);
+        resolve(data['results']);
       }, err => {
         console.log(err);
       });
     });
   }
 
+  getUsersGitHub(input: String) {
+
+    if(input != '') input = '/'+input
+
+        return new Promise(resolve => {
+          this.http.get(this.apiUrl2+input)
+          .subscribe(data => {
+            resolve(data);
+          }, err => {
+            console.log(err);
+          });
+        });
+      }
 
 
-}
+  }
+
+
+
+

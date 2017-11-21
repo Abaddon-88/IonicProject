@@ -15,12 +15,12 @@
 
 <ion-content>
   <ion-list inset>
-    <button ion-item *ngFor="let user of users" (click)="UserDetails(user)">
+      <button ion-item *ngFor="let user of users" (click)="UserDetails(user)">
       <ion-avatar item-left>
-        <img src="{{user.avatar_url}}">
+        <img src="{{user.picture.thumbnail}}">
       </ion-avatar>
-      <h2 class="capitalize" >{{user.login }}  {{user.type}}</h2>
-      
+      <h2 class="capitalize" >{{user.name.first }}  {{user.name.last}}</h2>
     </button>
+
   </ion-list>
 </ion-content>

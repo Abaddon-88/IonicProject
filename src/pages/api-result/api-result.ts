@@ -29,7 +29,7 @@ export class ApiResultPage {
   
 
   getUsers() {
-    this.apiProvider.getUsers('')
+    this.apiProvider.getUsersProfiles('')
     .then(data => {
       console.log(data);
       this.users = data;

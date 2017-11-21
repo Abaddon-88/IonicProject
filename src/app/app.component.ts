@@ -1,3 +1,4 @@
+import { GitHubDetailPage } from './../pages/git-hub-detail/git-hub-detail';
 import { FunktionsuebersichtPage } from '../pages/funktionsuebersicht/funktionsuebersicht';
 
 
@@ -32,12 +33,10 @@ export class MyApp {
 this.initializeApp();
 
     this.pages = [
-      { title: 'Funktionen', component: FunktionsuebersichtPage},
-      { title: 'Page1', component: Page1Page},
-      { title: 'Page2',  component: Page2Page},
-      { title: 'Page3', component: Page3Page },
+
       { title: 'Komponenten', component: KomponentenPage },
       { title: 'Api', component: ApiResultPage },
+      { title: "GitHub", component: GitHubDetailPage},
       { title: "Location", component: LocationPage}
 
     ];
