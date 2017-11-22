@@ -1,6 +1,4 @@
-import { Page1Page } from './../page1/page1';
 
-import { Page2Page } from './../page2/page2';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -21,17 +19,5 @@ export class Page3Page {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  pushtoPage1(){
-    this.navCtrl.push(Page1Page)
-      }
-    
-      pushtoPage2()
-      {
-        this.navCtrl.push(Page2Page)
-      }
 
-      pushtoHome(){
-        
-          this.navCtrl.popToRoot();
-        }
 }

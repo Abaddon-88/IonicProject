@@ -1,6 +1,5 @@
 
 import { ApiResultPage } from '../api-result/api-result';
-import { Page1Page } from '../page1/page1';
 import { Component, ViewChild } from '@angular/core';
 import { AlertController, IonicPage, LoadingController, Nav, NavController, NavParams } from 'ionic-angular';
 import { KomponentenPage } from '../komponenten/komponenten';
@@ -26,14 +25,12 @@ export class FunktionsuebersichtPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  
-  } 
 
-  
-
-  pushtoPage1(){
-    this.navCtrl.push(Page1Page);
   }
+
+
+
+
 
   pushtoApiPage(){
     this.navCtrl.push(ApiResultPage);
