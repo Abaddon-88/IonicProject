@@ -7,7 +7,7 @@ import { LocationPage } from './location';
     LocationPage,
   ],
   imports: [
-    IonicPageModule.forChild(LocationPage),
+    IonicPageModule.forChild(LocationPage)
   ],
 })
 export class LocationPageModule {}

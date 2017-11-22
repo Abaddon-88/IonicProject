@@ -25,7 +25,8 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { RoutePage } from '../pages/route/route';
 import { RoutePageModule } from '../pages/route/route.module';
-
+import { LocationTracker} from '../providers/location-tracker/location-tracker';
+import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,10 @@ import { RoutePageModule } from '../pages/route/route.module';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiServiceProvider,
     GoogleMaps,
-    InAppBrowser
+    InAppBrowser,
+    LocationTracker,
+    BackgroundGeolocation
+
   ]
 })
 export class AppModule {

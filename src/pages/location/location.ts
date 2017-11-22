@@ -33,16 +33,23 @@ export class LocationPage {
 
   @ViewChild('map') mapRef: ElementRef;
   map;
+  lat
+  lng
   location;
-  constructor(public navCtrl: NavController, private geolocation: Geolocation, private platform: Platform) {
-  //  this.loadMap();
+  constructor(public navCtrl: NavController, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform) {
+    // this.showcurrentPosition();
+    this.lat = navParams.get("lat");
+    this.lng = navParams.get("lng");
+    this.location = new LatLng(this.lat, this.lng);
   }
 
-ionViewDidLoad(){
-  this.showcurrentPosition();
-//this.showMap();
-}
 
+  ionViewWillEnter(){
+   // this.showcurrentPosition();
+
+this.showMap(this.location);
+
+  }
 
 
 showcurrentPosition() {
@@ -59,8 +66,9 @@ showcurrentPosition() {
 }
 
     showMap(mapLocation){
+      console.log(mapLocation);
       const location = new google.maps.LatLng(mapLocation)
-
+      console.log(location);
 
       const option = {
         center: location,
@@ -68,8 +76,11 @@ showcurrentPosition() {
       }
 
     const map = new google.maps.Map(this.mapRef.nativeElement,option);
+    console.log(map);
       this.map = map;
      this.addMarker(location, map);
+
+
     }
 
     addMarker(position, map){

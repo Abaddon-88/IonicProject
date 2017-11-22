@@ -88,8 +88,16 @@
     <allow-navigation href="http://192.168.0.111:8100" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
     <allow-navigation href="http://192.168.178.33:8100" />
-    <plugin name="cordova-plugin-geolocation" spec="^3.0.0">
+    <engine name="android" spec="~6.4.0" />
+    <plugin name="cordova-plugin-geolocation" spec="^3.4.4">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
-    <engine name="android" spec="~6.3.0" />
+    <plugin name="cordova-plugin-mauron85-background-geolocation" spec="^2.3.2">
+        <variable name="ICON" value="@mipmap/icon" />
+        <variable name="SMALL_ICON" value="@mipmap/icon" />
+        <variable name="ACCOUNT_NAME" value="@string/app_name" />
+        <variable name="ACCOUNT_LABEL" value="@string/app_name" />
+        <variable name="ACCOUNT_TYPE" value="$PACKAGE_NAME.account" />
+        <variable name="CONTENT_AUTHORITY" value="$PACKAGE_NAME" />
+    </plugin>
 </widget>

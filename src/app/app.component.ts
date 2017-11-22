@@ -1,3 +1,4 @@
+import { LocationTracker } from './../providers/location-tracker/location-tracker';
 import { GitHubDetailPage } from './../pages/git-hub-detail/git-hub-detail';
 import { FunktionsuebersichtPage } from '../pages/funktionsuebersicht/funktionsuebersicht';
 
@@ -27,16 +28,16 @@ export class MyApp {
 
 
 
-  constructor(public platform: Platform,public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform,public statusBar: StatusBar, public splashScreen: SplashScreen, private tracker: LocationTracker) {
 this.initializeApp();
 
     this.pages = [
 
       { title: 'Komponenten', component: KomponentenPage },
       { title: 'Api', component: ApiResultPage },
-      { title: "GitHub", component: GitHubDetailPage},
-      { title: "Location", component: LocationPage},
-      { title: "Route", component: RoutePage}
+      { title: "GitHub", component: GitHubDetailPage },
+      { title: "Location", component: LocationPage },
+      { title: "Route", component: RoutePage }
 
     ];
     };
@@ -53,10 +54,20 @@ this.initializeApp();
     }
 
     openPage(page) {
-    console.log(page);
-      this.nav.push(page.component);
+      this.nav.push(page.component, {
+        lat: this.tracker.lat,
+        lng: this.tracker.lng
+      });
 
     }
 
+
+    start(){
+      this.tracker.startTracking();
+    }
+
+    stop(){
+      this.tracker.stopTracking();
+    }
 }
 
