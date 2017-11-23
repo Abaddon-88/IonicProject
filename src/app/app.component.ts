@@ -13,6 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { LocationPage } from '../pages/location/location';
 import { RoutePage } from '../pages/route/route';
+import { Page2Page } from '../pages/page2/page2';
 
 
 
@@ -37,7 +38,8 @@ this.initializeApp();
       { title: 'Api', component: ApiResultPage },
       { title: "GitHub", component: GitHubDetailPage },
       { title: "Location", component: LocationPage },
-      { title: "Route", component: RoutePage }
+      { title: "Route", component: RoutePage },
+      { title: "Page2", component: Page2Page }
 
     ];
     };

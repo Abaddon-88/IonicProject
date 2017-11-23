@@ -13,8 +13,8 @@
 
   <div id="floating-panel">
     <b>Fortbewegungsmethode: </b>
-    <select id="mode">
-      <option value="DRIVING">Fahren</option>
+    <select [(ngModel)]= "mode" (change)="onModeChange(mode)">
+      <option selected="selected" value="DRIVING">Fahren</option>
       <option value="WALKING">Laufen</option>
       <option value="BICYCLING">Radfahren</option>
       <option value="TRANSIT">öff. Verkehrsmittel</option>

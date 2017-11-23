@@ -1,13 +1,8 @@
 
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MapService } from '../../providers/map-service/map-service';
 
-/**
- * Generated class for the Page2Page page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -16,12 +11,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class Page2Page {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private map: MapService) {
+
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Page2Page');
+  ionViewDidEnter(){
+    this.map.showMap();
+
+    setInterval(() => {
+      this.map.showMap();
+    },5000);
   }
+
+
 
 
 

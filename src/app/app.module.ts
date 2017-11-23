@@ -27,6 +27,9 @@ import { RoutePage } from '../pages/route/route';
 import { RoutePageModule } from '../pages/route/route.module';
 import { LocationTracker} from '../providers/location-tracker/location-tracker';
 import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
+import { MapService } from '../providers/map-service/map-service';
+import { Page2Page } from '../pages/page2/page2';
+import { Page2PageModule } from '../pages/page2/page2.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
     ApiResultPageModule,
     GitHubDetailPageModule,
     LocationPageModule,
-    RoutePageModule
+    RoutePageModule,
+    Page2PageModule
 
   ],
   bootstrap: [IonicApp],
@@ -53,7 +57,8 @@ import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
     ApiResultPage,
     GitHubDetailPage,
     LocationPage,
-    RoutePage
+    RoutePage,
+    Page2Page
   ],
   providers: [
     StatusBar,
@@ -64,7 +69,9 @@ import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
     GoogleMaps,
     InAppBrowser,
     LocationTracker,
-    BackgroundGeolocation
+    MapService,
+    BackgroundGeolocation,
+
 
   ]
 })
