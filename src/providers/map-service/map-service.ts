@@ -22,17 +22,13 @@ declare var google;
 
 @Injectable()
 export class MapService {
-    @ViewChild('map') mapRef: ElementRef;
 
-    i = 0;
     constructor(public locationTracker: LocationTracker) {}
 
 
 
     showMap() {
-console.log("hier")
         const location = this.locationTracker.getLatLng()
-        console.log(location && this.i);
         const option = {
             center: location,
             zoom: 14

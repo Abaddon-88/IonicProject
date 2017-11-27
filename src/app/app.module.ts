@@ -30,6 +30,8 @@ import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import { MapService } from '../providers/map-service/map-service';
 import { Page2Page } from '../pages/page2/page2';
 import { Page2PageModule } from '../pages/page2/page2.module';
+import { MenuComponent } from '../pages/menu/menu';
+import { MenuComponentModule } from '../pages/menu/menu.module';
 
 @NgModule({
   declarations: [
@@ -40,13 +42,7 @@ import { Page2PageModule } from '../pages/page2/page2.module';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    HomePageModule,
-    FunktionsuebersichtPageModule,
-    ApiResultPageModule,
-    GitHubDetailPageModule,
-    LocationPageModule,
-    RoutePageModule,
-    Page2PageModule
+    MenuComponentModule
 
   ],
   bootstrap: [IonicApp],
@@ -58,7 +54,8 @@ import { Page2PageModule } from '../pages/page2/page2.module';
     GitHubDetailPage,
     LocationPage,
     RoutePage,
-    Page2Page
+    Page2Page,
+    MenuComponent
   ],
   providers: [
     StatusBar,

@@ -1,75 +1,57 @@
-import { LocationTracker } from './../providers/location-tracker/location-tracker';
-import { GitHubDetailPage } from './../pages/git-hub-detail/git-hub-detail';
-import { FunktionsuebersichtPage } from '../pages/funktionsuebersicht/funktionsuebersicht';
-
-
-import { ApiResultPage } from './../pages/api-result/api-result';
-import { KomponentenPage } from './../pages/komponenten/komponenten';
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, NavController } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
+import { Platform, Nav } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
 import { HomePage } from '../pages/home/home';
-import { LocationPage } from '../pages/location/location';
-import { RoutePage } from '../pages/route/route';
-import { Page2Page } from '../pages/page2/page2';
-
-
+import { LocationTracker } from './../providers/location-tracker/location-tracker';
+import { MenuComponent } from '../pages/menu/menu';
 
 
 @Component({
-  templateUrl: 'app.html'
+  template: '<ion-nav #baseNav></ion-nav>'
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
-  rootPage:any = HomePage;
-
-  pages: Array<{title: string, component: any}>;
+    @ViewChild('baseNav') nav: Nav;
 
 
+    constructor(public platform: Platform, public statusBar: StatusBar,
+      public splashScreen: SplashScreen, private tracker: LocationTracker) {
+      this.initializeApp();
 
-  constructor(public platform: Platform,public statusBar: StatusBar, public splashScreen: SplashScreen, private tracker: LocationTracker) {
-this.initializeApp();
+    }
 
-    this.pages = [
+    ngOnInit() {
+      const componentStack: Array<{page: any}> = [{
+        page: MenuComponent
+      }];
 
-      { title: 'Komponenten', component: KomponentenPage },
-      { title: 'Api', component: ApiResultPage },
-      { title: "GitHub", component: GitHubDetailPage },
-      { title: "Location", component: LocationPage },
-      { title: "Route", component: RoutePage },
-      { title: "Page2", component: Page2Page }
+      this.nav.insertPages(0, componentStack, { animate: false });
+    }
 
-    ];
-    };
+    openPage(page) {
+        this.nav.push(page.component, {
+            lat: this.tracker.lat,
+            lng: this.tracker.lng
+        });
+    }
 
+    start() {
+        this.tracker.startTracking();
+    }
+
+    stop() {
+        this.tracker.stopTracking();
+    }
 
 
 
     initializeApp() {
       this.platform.ready().then(() => {
-
+        // Okay, so the platform is ready and our plugins are available.
+        // Here you can do any higher level native things you might need.
         this.statusBar.styleDefault();
         this.splashScreen.hide();
       });
     }
-
-    openPage(page) {
-      this.nav.push(page.component, {
-        lat: this.tracker.lat,
-        lng: this.tracker.lng
-      });
-
-    }
-
-
-    start(){
-      this.tracker.startTracking();
-    }
-
-    stop(){
-      this.tracker.stopTracking();
-    }
 }
-
