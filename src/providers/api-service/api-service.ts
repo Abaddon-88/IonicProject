@@ -10,51 +10,43 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class ApiServiceProvider {
+    apiUrl = 'https://randomuser.me/api/?results=20';
+    apiUrl1 = 'https://jsonplaceholder.typicode.com/users';
+    apiUrl2 = 'https://api.github.com/users';
 
-apiUrl = 'https://randomuser.me/api/?results=20';
-apiUrl1 = 'https://jsonplaceholder.typicode.com/users';
-apiUrl2 = 'https://api.github.com/users';
+    constructor(public http: HttpClient) {}
 
-  constructor(public http: HttpClient) {
+    checkInput(input: String) {
+        if (input != '') return (input = '/' + input);
+    }
 
-  }
-
-checkInput(input:String){
-
-  if(input!='') return input = '/'+input
-}
-
-  getUsersProfiles(input: String) {
-
-    if(input != '') input = '/'+input
-
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl+input)
-      .subscribe(data => {
-        resolve(data['results']);
-      }, err => {
-        console.log(err);
-      });
-    });
-  }
-
-  getUsersGitHub(input: String) {
-
-    if(input != '') input = '/'+input
+    getUsersProfiles(input: String) {
+        if (input != '') input = '/' + input;
 
         return new Promise(resolve => {
-          this.http.get(this.apiUrl2+input)
-          .subscribe(data => {
-            resolve(data);
-          }, err => {
-            console.log(err);
-          });
+            this.http.get(this.apiUrl + input).subscribe(
+                data => {
+                    resolve(data['results']);
+                },
+                err => {
+                    console.log(err);
+                }
+            );
         });
-      }
+    }
 
+    getUsersGitHub(input: String) {
+        if (input != '') input = '/' + input;
 
-  }
-
-
-
-
+        return new Promise(resolve => {
+            this.http.get(this.apiUrl2 + input).subscribe(
+                data => {
+                    resolve(data);
+                },
+                err => {
+                    console.log(err);
+                }
+            );
+        });
+    }
+}

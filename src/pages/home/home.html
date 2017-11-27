@@ -1,18 +1,19 @@
 <ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>Menü</ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Startseite</ion-title>
+  </ion-navbar>
+</ion-header>
 
-  <ion-content padding>
+<ion-content padding>
 
 
-    <h1>Herzlich willkommen in meiner App</h1>
-    <p>Und viel Spaß</p>
+  <h1>Herzlich willkommen in meiner App</h1>
+  <p>Und viel Spaß</p>
 
-    <h3>Current Latitude: {{locationTracker.lat}}</h3>
-    <h3>Current Longitude: {{locationTracker.lng}}</h3>
-  </ion-content>
+  <h1>Aktuelle Position: </h1>
+  <h3>Latitude: {{locationTracker.lat}}</h3>
+  <h3>Longitude: {{locationTracker.lng}}</h3>
+</ion-content>

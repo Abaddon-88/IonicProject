@@ -1,31 +1,20 @@
-
-
-    
-      
 <ion-header>
-    
-      <ion-navbar>
-        <ion-title>Funktion</ion-title>
-      </ion-navbar>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Funktion</ion-title>
+  </ion-navbar>
+</ion-header>
 
-    
-    </ion-header>
-  
-    
 
-  
-    
-        <ion-content padding>
-          <br>
-            <button ion-button (click)="pushtoPage1()">Seiten-Navigation</button>
-            <br>
-            <button ion-button (click)="pushtoComponent()">Komponenten</button>
-            <br>
-            <button ion-button (click)="pushtoApiPage()">API-Funktion</button>
-            <br>
-            <button ion-button (click)="pushtoLocation()">Location-Funktion</button>
-        </ion-content>
-    
-   
-    
-    
+<ion-content padding>
+  <br>
+  <button ion-button (click)="pushtoPage1()">Seiten-Navigation</button>
+  <br>
+  <button ion-button (click)="pushtoComponent()">Komponenten</button>
+  <br>
+  <button ion-button (click)="pushtoApiPage()">API-Funktion</button>
+  <br>
+  <button ion-button (click)="pushtoLocation()">Location-Funktion</button>
+</ion-content>

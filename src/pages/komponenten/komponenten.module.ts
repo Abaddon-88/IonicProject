@@ -3,11 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { KomponentenPage } from './komponenten';
 
 @NgModule({
-  declarations: [
-    KomponentenPage,
-  ],
-  imports: [
-    IonicPageModule.forChild(KomponentenPage),
-  ],
+    declarations: [KomponentenPage],
+    imports: [IonicPageModule.forChild(KomponentenPage)]
 })
 export class KomponentenPageModule {}

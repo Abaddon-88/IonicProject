@@ -3,11 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { GitHubDetailPage } from './git-hub-detail';
 
 @NgModule({
-  declarations: [
-    GitHubDetailPage,
-  ],
-  imports: [
-    IonicPageModule.forChild(GitHubDetailPage),
-  ],
+    declarations: [GitHubDetailPage],
+    imports: [IonicPageModule.forChild(GitHubDetailPage)]
 })
 export class GitHubDetailPageModule {}
