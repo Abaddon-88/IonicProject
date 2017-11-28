@@ -8,13 +8,13 @@ import { MapService } from '../../providers/map-service/map-service';
     templateUrl: 'page2.html'
 })
 export class Page2Page {
-    constructor(private map: MapService) {}
+    constructor(private mapService: MapService) {}
 
     ionViewDidEnter() {
-        this.map.showMap();
+        this.mapService.showMap()
 
         setInterval(() => {
-            this.map.showMap();
+          this.mapService.showMap()
         }, 5000);
     }
 }

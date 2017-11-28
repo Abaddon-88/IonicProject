@@ -88,7 +88,6 @@
     <allow-navigation href="http://192.168.0.111:8100" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
     <allow-navigation href="http://192.168.178.33:8100" />
-    <engine name="android" spec="~6.4.0" />
     <plugin name="cordova-plugin-geolocation" spec="^3.4.4">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
@@ -101,4 +100,5 @@
         <variable name="CONTENT_AUTHORITY" value="$PACKAGE_NAME" />
         <variable name="GOOGLE_PLAY_SERVICES_VERSION" value="+" />
     </plugin>
+    <engine name="android" spec="~6.3.0" />
 </widget>

@@ -1,18 +1,15 @@
+import { Map } from 'rxjs/util/Map';
 import { Injectable } from '@angular/core';
 import { LocationTracker } from '../location-tracker/location-tracker';
 
 declare var google;
 
-
 @Injectable()
 export class MapService {
-
     constructor(public locationTracker: LocationTracker) {}
 
-
-
-    showMap() {
-        const location = this.locationTracker.getLatLng()
+    showMap(): any {
+        const location = this.locationTracker.getLatLng();
         const option = {
             center: location,
             zoom: 14
@@ -20,6 +17,7 @@ export class MapService {
 
         const map = new google.maps.Map(document.getElementById('map'), option);
         this.addMarker(location, map);
+        return map;
     }
 
     addMarker(position, map) {
@@ -28,7 +26,7 @@ export class MapService {
             map
         });
 
-        this.addInfo(marker, map);
+        //this.addInfo(marker, map);
         return marker;
     }
 

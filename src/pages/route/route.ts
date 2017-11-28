@@ -1,7 +1,9 @@
+import { LocationTracker } from '../../providers/location-tracker/location-tracker';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { LatLng } from '@ionic-native/google-maps';
+import { MapService } from '../../providers/map-service/map-service';
 
 declare var google: any;
 
@@ -12,111 +14,56 @@ declare var google: any;
 })
 export class RoutePage {
     @ViewChild('map') mapRef: ElementRef;
-    map;
-    location;
-    lat;
-    lng;
-    point1;
-    point2;
-    route;
-    mode;
+    map: any;
+    marker: any;
 
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        private geolocation: Geolocation
-    ) {
-        this.lat = navParams.get('lat');
-        this.lng = navParams.get('lng');
-        this.location = new LatLng(this.lat, this.lng);
-        this.point1 = location;
-    }
-
-    public items: LatLng[] = [];
+        private geolocation: Geolocation,
+        private tracker: LocationTracker,
+        private mapService: MapService
+    ) {}
 
     ngAfterViewInit() {
-        this.showMap(this.location);
+        this.map = this.mapService.showMap();
+        this.setListener(this.tracker.getLatLng(), this.map);
     }
 
-    showcurrentPosition(): LatLng {
-        let watch = this.geolocation.watchPosition();
-        watch.subscribe(position => {
-            const location = new LatLng(position.coords.latitude, position.coords.longitude);
-            this.location = location;
+    setListener(location, map) {
+        var directionsDisplay = new google.maps.DirectionsRenderer();
+        var directionsService = new google.maps.DirectionsService();
 
-            // this.showMap(location);
-        });
-        return this.location;
-    }
+        var markers = [];
+        this.map.addListener('click', function(e) {
+            document.getElementById('time').innerHTML = '';
+            directionsDisplay.setPanel(document.getElementById('time'));
+            setRoute(directionsService, directionsDisplay, e.latLng, location, map);
 
-    showMap(mapLocation) {
-        const option = {
-            center: mapLocation,
-            zoom: 14
-        };
+            var onChangeHandler = function() {
+                setRoute(directionsService, directionsDisplay, e.latLng, location, map);
+            };
 
-        const map = new google.maps.Map(this.mapRef.nativeElement, option);
-
-        this.addMarker(mapLocation, map);
-
-        map.addListener('click', function(e) {
-            placeMarker(mapLocation, e.latLng, this.getMode, map);
+            document.getElementById('floating-panel').addEventListener('change', onChangeHandler);
         });
 
-        //this.calculateAndDisplayRoute(this.point1,this.point2);
-
-        function placeMarker(point1, point2, mode, map) {
-            setRoute(point1, point2, mode, map);
-        }
-
-        function setRoute(point1, point2, mode, map) {
-            var directionsDisplay = new google.maps.DirectionsRenderer();
-            var directionsService = new google.maps.DirectionsService();
-            var selectedMode = mode;
-
+        function setRoute(directionsService, directionsDisplay, point1, point2, map) {
+            var mode = (<HTMLInputElement>document.getElementById('select')).value;
             directionsDisplay.setMap(map);
-
             directionsService.route(
                 {
                     origin: point1,
                     destination: point2,
-                    travelMode: selectedMode
+                    travelMode: mode
                 },
                 function(response, status) {
                     if (status == 'OK') {
                         directionsDisplay.setDirections(response);
                     } else {
-                        window.alert('Directions request failed due to ' + status);
+                        console.log('Directions request failed due to ' + status);
                     }
                 }
             );
-
-            directionsDisplay.setPanel(document.getElementById('time'));
         }
-    }
-
-    addMarker(position, map) {
-        var marker = new google.maps.Marker({
-            position,
-            map
-        });
-
-        this.addInfo(marker, map);
-    }
-
-    addInfo(marker, map) {
-        var input1: string = marker.position;
-        var marker1 = input1 + '';
-        var coordInfoWindow = new google.maps.InfoWindow({
-            content: marker1
-        });
-
-        marker.addListener('click', () => {
-            coordInfoWindow.open(map, marker);
-        });
-    }
-
-    onModeChange(SelectedValue) {
-        this.mode = SelectedValue;
     }
 }
