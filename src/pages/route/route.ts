@@ -25,8 +25,9 @@ export class RoutePage {
         private mapService: MapService
     ) {}
 
-    ngAfterViewInit() {
+    ionViewWillEnter() {
         this.map = this.mapService.showMap();
+        this.mapService.addMarker(this.tracker.getLatLng(),this.map)
         this.setListener(this.tracker.getLatLng(), this.map);
     }
 
@@ -34,11 +35,11 @@ export class RoutePage {
         var directionsDisplay = new google.maps.DirectionsRenderer();
         var directionsService = new google.maps.DirectionsService();
 
-        var markers = [];
+
         this.map.addListener('click', function(e) {
             document.getElementById('time').innerHTML = '';
             directionsDisplay.setPanel(document.getElementById('time'));
-            setRoute(directionsService, directionsDisplay, e.latLng, location, map);
+             setRoute(directionsService, directionsDisplay, e.latLng, location, map);
 
             var onChangeHandler = function() {
                 setRoute(directionsService, directionsDisplay, e.latLng, location, map);

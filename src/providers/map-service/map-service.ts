@@ -1,3 +1,4 @@
+import { LatLng } from '@ionic-native/google-maps';
 import { Map } from 'rxjs/util/Map';
 import { Injectable } from '@angular/core';
 import { LocationTracker } from '../location-tracker/location-tracker';
@@ -16,7 +17,7 @@ export class MapService {
         };
 
         const map = new google.maps.Map(document.getElementById('map'), option);
-        this.addMarker(location, map);
+       // this.addMarker(location, map);
         return map;
     }
 
